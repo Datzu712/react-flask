@@ -1,9 +1,9 @@
-function App() {
-    return (
-        <p className="read-the-docs">
-            Click on the Vite and React logos to learn more
-        </p>
-    );
-}
+import { useRoutes } from 'react-router';
+import appRoutes from '@config/routes';
+import { Suspense } from 'react';
 
-export default App;
+export default function App() {
+    const routes = useRoutes(appRoutes);
+
+    return <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>;
+}
